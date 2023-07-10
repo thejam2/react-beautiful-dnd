@@ -19,4 +19,5 @@ Droppable 안은 함수여야함
 ## Droggable
 드래그 할 영역
 
-### 
+### isDragDisabled
+드래그 허용 여부를 제어
