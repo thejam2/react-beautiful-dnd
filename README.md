@@ -21,3 +21,39 @@ Droppable 안은 함수여야함
 
 ### isDragDisabled
 드래그 허용 여부를 제어
+
+
+## 샘플
+```
+<DragDropContext onDragEnd={(e) => onDragEnd(e)}>
+  <div>
+    <Droppable droppableId="optionList">
+      {(provided, snapshot) => (
+        <div ref={provided.innerRef} {...provided.droppableProps}>
+          {radioCkList.map((v, i) => {
+            return (
+              <Draggable
+                draggableId={"draggable" + v.id}
+                index={i}
+                key={v.id}
+              >
+                {(provided, snapshot) => (
+                  <div
+                    key={v}
+                    ref={provided.innerRef}
+                    {...provided.draggableProps}
+                    {...provided.dragHandleProps}
+                  >
+                    내용
+                  </div>
+                )}
+              </Draggable>
+            );
+          })}
+          {provided.placeholder}
+        </div>
+      )}
+    </Droppable>
+  </div>
+</DragDropContext>
+```
